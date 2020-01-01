@@ -90,6 +90,10 @@
       $("#example p").wrapAll("<div style='color:red'></div>"); // self ex.
       $("div .change").empty();
 
+      $("#example p.a, #example p.b").remove(); // self .detach(), for temporary
+      $("<div>wooopla</div>").replaceAll("#example p[id]"); //self
+      //$("#example p[id]").replaceWith("<div>ppp</div>"); //self
+
       // wrap
     </script>
   </body>
