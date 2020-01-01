@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JQuery</title>
+    <style>
+      #example {
+        height: 300px;
+        width: 300px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="one">
+      <div class="1t">one</div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sunt
+        sint libero, fugit ratione, provident ipsum delectus quae qui nesciunt
+        nemo eius dolorem ipsa necessitatibus quis a vel maxime quasi.
+      </p>
+      <p class="t">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sunt
+        sint libero, fugit ratione 3, provident ipsum delectus quae qui nesciunt
+        nemo eius dolorem ipsa necessitatibus quis a vel maxime quasi.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sunt
+        sint libero, fugit ratione, provident ipsum delectus quae qui nesciunt
+        nemo eius dolorem ipsa necessitatibus quis a vel maxime quasi.
+      </p>
+      <!-- <div class="id">one</div>
+      <div class="id1">one</div>
+      <div class="id">one</div>
+    </div>
+    <div id="content" class="content"></div>
+    <div id="example">
+      <div id="inside">inside</div>
+      <div id="inside1">inside1</div>
+      <div id="inside2">inside2</div>
+      <div id="inside3">inside3</div>
+    </div>
+    <div id="example1">
+      <div id="inside1">this is inside</div>
+    </div>
+    <!-- <p>para1</p>
+    <p id="p2">para2</p> -->
+      <p>para3</p>
+    </div>
+
+    <button id="butt">clink me</button> -->
+
+    <script>
+      $().ready(() => {
+        $(".content")
+          .append("<h4>hi therer</h4>")
+          .css("color", "red")
+          .css("font-size", "40px");
+      });
+      //$("p:first").css("color", "green");
+      $("p:not(#p2)").css("color", "green");
+      var p = $("p");
+      p.append("<h3>hello world</h3>");
+      $("#example")
+        .html(p)
+        .prepend("hi there watch this"); //replaces the inner content
+
+      //$("#example1").html("<p>this is changed</p>");
+      $("#example1").text("<p>this is changed</p>"); // prints as it is as plain text
+
+      $("#butt").click(() => {
+        $("#example").animate({ width: 400 }, 300);
+      });
+      $("#one div:odd").css("color", "green");
+      $("#one div:not(div:eq(2))").css("color", "red");
+      $("#one > div:not(div:eq(2))").css("color", "pink"); //immidiate child
+      $("#one  div#id1").css("color", "blue"); //anywhere child
+      //$("#butt + div").css("background-color", "black"); // + means just afterthe previous selectior ended
+      $(".id1 ~ div").css("background-color", "black"); // select all div as long as theu have class "id1" as their previous element
+      $("div[class]").css("background-color", "green"); //selet all div with attriute "class"
+      $("div[class=id1]").css("background-color", "white"); //selet all div with attriute class = id1
+      $("div[class^=d]").css("background-color", "purple"); //selet all div with attriute "class" starts with 'i'
+      $("div[class*=1]").css("background-color", "purple"); //selet all div with attriute "class" which contains '1'
+      $("p:parent").css("color", "purple"); //select paragraph having text inside
+      //$("p:contains('3')").css("color","black") //self explanatory
+      $("div:has(p[class*=t])").css("background-color", "green"); //self explanatory
+      //$("div p:first-child").css("color", "white");
+      $("div p:last-of-type").css("border", "2px solid black"); //last of the 'p' type in div
+      //$("div p:nth-child(1)").css("border", "2px solid black"); //last of the 'p' type in div
+      $("div p:nth-child(2n)").css("border", "2px solid white");
+    </script>
+  </body>
+</html>

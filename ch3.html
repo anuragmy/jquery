@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating New Content</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $().ready(function() {
+        document
+          .getElementById("create")
+          .addEventListener("click", function(evt) {
+            createContent();
+          });
+        document
+          .getElementById("change")
+          .addEventListener("click", function(evt) {
+            changeContent();
+          });
+        document
+          .getElementById("changeAll")
+          .addEventListener("click", function(evt) {
+            changeAllTheContent();
+          });
+      });
+
+      function createContent() {}
+
+      function changeContent() {}
+
+      function changeAllTheContent() {}
+    </script>
+  </head>
+
+  <body>
+    <h1>Creating new document content</h1>
+    <div id="content">
+      <p>
+        jQuery makes the creation and manipulation of document content very
+        easy. Rather than having to directly use the verbose DOM methods, you
+        can roll several operations into just a few function calls.
+      </p>
+      <ul id="list1">
+        <li>
+          <code>html(<i>str</i>)</code>: can be used to retrieve or set the HTML
+          content of an element
+        </li>
+        <li>
+          <code>text(<i>str</i>)</code>: used to retrieve or set the text
+          content of an element
+        </li>
+      </ul>
+      <div id="example">
+        <p class="a">This is paragraph 1</p>
+        <p id="para1">This is paragraph 2</p>
+        <p class="b">This is paragraph 3</p>
+        <p id="para4" lang="en-us">This is paragraph 4</p>
+        <p id="para5" lang="en-gb">This is paragraph 5</p>
+      </div>
+      <div>
+        <button id="create">Create Content</button>
+        <button id="change">Change Content</button>
+        <button id="changeAll">Change All</button>
+      </div>
+      <div>
+        <div id="create">Create Content</div>
+        <div id="change">Change Content</div>
+        <div id="changeAll">Change All</div>
+      </div>
+    </div>
+    <script>
+      $().ready(() => {
+        $("p[class=a]").append("yahoo");
+        $("p[class=a]").prepend("yahoo");
+        $("p[class=a]").appendTo("#example p:last");
+        $("p[class=a]").prependTo("#example p:nth-child(4)");
+        // $("#example p").each((index, element) => {
+        //   element.after("<p>--</p>");
+        //   element.before("</o>");
+        // });
+      });
+
+      $("<p>hi freinds</p>").insertAfter("#example p");
+      $("<p>hi freinds</p>").insertBefore("p[class=a]");
+      $("#example p").wrap("<div style='color:red'></div>"); // self ex.
+      $("#example p").wrapAll("<div style='color:red'></div>"); // self ex.
+      $("div .change").empty();
+
+      // wrap
+    </script>
+  </body>
+</html>
