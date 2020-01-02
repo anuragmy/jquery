@@ -84,7 +84,12 @@
         $(".a").toggleClass("pclass")
         $(".a").toggleClass("a");
         $(".a").toggleClass("pclass");
-        alert(JSON.stringify($("div[id=content]").data(),null," ")); // data attribute
+        alert(JSON.stringify($("div[id=content]").data(),null," "));
+        alert(JSON.stringify($("example").data({
+            name:"anurag",
+            "place":"delhi"
+        }))); // data attribute
+         
         
 
     });
